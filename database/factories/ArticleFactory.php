@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\=>
+ * @extends Factory<\App\Models\=>
  */
 class ArticleFactory extends Factory
 {
@@ -16,7 +16,7 @@ class ArticleFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'title' => $this->faker->title(),

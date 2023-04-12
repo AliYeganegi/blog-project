@@ -30,6 +30,6 @@ class ArticleSeeder extends Seeder
 //                'updated_at' =>  Carbon::now()->format('Y-m-d H:i:s'),
 //            ]);
 //        }
-        Article::factory()->count(20)->create();
+        Article::factory()->count(10)->create();
     }
 }
