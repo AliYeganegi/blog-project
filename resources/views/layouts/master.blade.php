@@ -15,7 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="public/css/styles.css">
 
 </head>
 
@@ -41,7 +41,7 @@
             @show
         </div>
     </div>
-    <!-- /.row -->  
+    <!-- /.row -->
 
 </div>
 <!-- /.container -->

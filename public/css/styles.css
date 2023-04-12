@@ -11286,3 +11286,69 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
+/* Styling for the logo */
+.logo-link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    fill: currentColor;
+    color: #808080;
+}
+
+/* Styling for the secure message */
+.secure-message {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: #4a5568;
+}
+
+/* Styling for the form */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1rem;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #cbd5e0;
+    box-shadow: 0 0 0 2px rgba(202, 227, 255, 0.5);
+}
+
+/* Styling for the submit button */
+.submit-button {
+    background-color: #4299e1;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2b6cb0;
+}
+
+.submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}

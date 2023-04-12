@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Middleware\EnsureTokenIsValid;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,11 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Models\Article;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'https'])->name('dashboard');
+})->middleware('auth')->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -33,4 +36,9 @@ Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::prefix('admin')->group(function() {
     Route::resource('articles', ArticleController::class)->middleware('auth');
+});
+
+Route::get('/test', function () {
+    $users = User::factory()->count(10)->suspended()->make();
+    return $users;
 });

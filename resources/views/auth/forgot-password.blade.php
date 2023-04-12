@@ -1,38 +1,46 @@
 @extends('layouts.master')
 
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+@section('content')
+    <div class="bg-gray-100 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="text-center">
+                <a href="/">
+                    <x-application-logo class="mx-auto h-12 w-auto text-indigo-600" />
+                </a>
+                <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+                    {{ __('Confirm Password') }}
+                </h2>
+                <p class="mt-2 text-center text-sm leading-5 text-gray-600 max-w">
+                    {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+                </p>
+            </div>
         </div>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                <form method="POST" action="{{ route('password.confirm') }}">
+                    @csrf
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+                    <div>
+                        <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
+                            {{ __('Password') }}
+                        </label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="password" name="password" type="password" required autocomplete="current-password" class="form-input block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
+                        </div>
+                    </div>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                    <div class="mt-6 flex justify-end">
+                    <span class="inline-flex rounded-md shadow-sm">
+                        <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                            {{ __('Confirm') }}
+                        </button>
+                    </span>
+                    </div>
+                </form>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </div>
+@endsection
